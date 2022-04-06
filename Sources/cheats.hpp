@@ -1,0 +1,187 @@
+#pragma once
+
+#include "3ds.h"
+#include <string>
+#include <vector>
+#include "CTRPluginFramework.hpp"
+
+#define BETWEEN(addr, min, max)            *(u32 *)(addr) > min && *(u32 *)(addr) < max
+#define READFLOAT(addr)                     *(float *)(addr)
+#define WRITEFLOAT(addr, data)                 *(float *)(addr) = data
+#define ADDTOUNSIGNED(addr, value)            *(u32 *)(addr) += value
+#define SUBTOUNSIGNED(addr, value)            *(u32 *)(addr) -= value
+
+
+#define ST Start
+#define SE Select
+
+unsigned int	GetRev(void);
+unsigned int	GetFNsPointer(void);
+unsigned int	GetRacePointer(void);
+unsigned int	GetRaceCondition(void);
+unsigned int    GetOldPointer5CC(void);
+unsigned int    GetOldPointer5D0(void);
+unsigned int	GetItemPointer(void);
+void	writeItem(u32 item);
+void	writeSpeed(u32 speed);
+void	writeVR(u32 vr);
+void	writeLocation(u32 location);
+void	writeFlag(u8 flag);
+void	invincible(void);
+void	alwaysStarPower(void);
+void	trickAnywhere(void);
+void	alwaysBlackKart(void);
+void	alwaysShocked(void);
+void	alwaysCrushed(void);
+void	instantMT(void);
+void	hugeBunnyhop(void);
+void	fastReverse(void);
+void	noCountdown(void);
+void	moonjump(void);
+void	stalking(void);
+void	cpuBrawl(void);
+void	TouchCode(void);
+void	saveSlotTeleporter(void);
+void	maxTimer(void);
+void	waterEverywhere(void);
+void	driveAnywhere(void);
+void	fastBlueShell(void);
+void	stoppedBlueShell(void);
+void	fastGreenShell(void);
+void	stoppedGreenShell(void);
+void	dropMushrooms(void);
+void	bulletControl(void);
+void	disableStarMusic(void);
+void	bulletSpeed(void);
+void	blueShellRide(void);
+void	itemWheel(void);
+void	instantAcceleration(void);
+void	instantBackAcceleration(void);
+void	instantStop(void);
+void	TwoHundredCC(void);
+void	eliminationMode(void);
+void	tagMode(void);
+void	shineTheif(void);
+void	FiveHundredCC(void);
+void	disableFirstPersonView(void);
+void	vrExtender(void);
+void	randomVR(void);
+void	unlockEverything(void);
+void	NoDC(void);
+void	fastGame(void);
+void	ASS(void);
+void	IRP(void);
+void	CC9000(void);
+void	AutoPilot(void);
+void	ItemBattle(void);
+void	CoBTpts(void);
+void	All99k(void);
+void	vrM(void);
+void	vrE2(void);
+void	vrE3(void);
+void	vr1(void);
+void	vr1000(void);
+void	vr5000(void);
+void	vr10000(void);
+void	vr50000(void);
+void	vr99999(void);
+void	vr114514(void);
+void	vr931810(void);
+void	vr512810(void);
+void	vr454545(void);
+void	vr191919(void);
+void	vr364364(void);
+void	vr375641(void);
+void	vr564219(void);
+void	vr564731(void);
+void	vr427311(void);
+void	vr427427(void);
+void	vr0(void);
+void	vr999999(void);
+void	vr696969(void);
+void	vr420000(void);
+void	vr495000(void);
+void	vr350000(void);
+void	vr355555(void);
+void	vr199998(void);
+void	vr655534(void);
+void	vr200102(void);
+void	vr123456(void);
+void	vr654321(void);
+void	vr888888(void);
+void	vr777777(void);
+void	vr666666(void);
+void	vr555555(void);
+void	vr444444(void);
+void	vr333333(void);
+void	vr222222(void);
+void	vr111111(void);
+void	vr100000(void);
+void	pts40(void);
+void	pts255(void);
+void	pts999(void);
+void	region_Africa(void);
+void	region_Argentina(void);
+void	region_Australia(void);
+void	region_China(void);
+void	region_Cuba(void);
+void	region_France(void);
+void	region_Hawaii(void);
+void	region_Haiti(void);
+void	region_Iran(void);
+void	region_Iceland(void);
+void	region_Phillippines(void);
+void	region_NorthernPhillippines(void);
+void	region_Russia(void);
+void	region_SaudiArabia(void);
+void	region_UnitedStates(void);
+void	region_NorthPole(void);
+void	region_NorthernPole(void);
+void	region_NorthernAntartica(void);
+void	region_UpperAntartica(void);
+void	region_LowerAntartica(void);
+void	region_LowerAntartica2(void);
+void	region_MoreAntartica(void);
+void	region_MoreAntartica2(void);
+void	region_MoreAntartica3(void);
+void	region_MoreAntartica4(void);
+void	region_MoreAntartica5(void);
+void	region_MoreAntartica6(void);
+void	region_wtf(void);
+void	region_wtf2(void);
+void	region_wtf3(void);
+void	region_Unknown(void);
+void	region_SpaghettiNoppers(void);
+void	flag_AntiguaAndBarbuda(void);
+void	flag_Argentina(void);
+void	flag_Australia(void);
+void	flag_Belize(void);
+void	flag_Brazil(void);
+void	flag_BritishVirginIslands(void);
+void	flag_Canada(void);
+void	flag_Chile(void);
+void	flag_China(void);
+void	flag_Dominica(void);
+void	flag_Denmark(void);
+void	flag_Ecuador(void);
+void	flag_Finland(void);
+void	flag_France(void);
+void	flag_Germany(void);
+void	flag_Greece(void);
+void	flag_Haiti(void);
+void	flag_Iceland(void);
+void	flag_Italy(void);
+void	flag_India(void);
+void	flag_Japan(void);
+void	flag_NewZealand(void);
+void	flag_Panama(void);
+void	flag_Russia(void);
+void	flag_SouthAfrica(void);
+void	flag_SouthKorea(void);
+void	flag_SaudiArabia(void);
+void	flag_Taiwan(void);
+void	flag_UnitedStates(void);
+void	flag_UnitedKingdom(void);
+void	flag_Uruguay(void);
+void	flag_USVirginIslands(void);
+void	lightningLimiterOnline(void);
