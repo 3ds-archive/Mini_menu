@@ -292,7 +292,9 @@ void DrawWelcomeScreen(const Screen &scr)
 	Color c4(0, 255, 0);
 	
 	const Color msg_c[] = {c1, c2, c2, c1, 0, c3, c3, 0, c1, 0, c4, 0 , c1, c2, c2, c2, c2};
-	const std::vector<std::string> messages =
+	
+	//const std::vector<std::string> messages =
+	char const* messages[] =
 	{
 		"------------------------------",
 		"  Created using libShark2NTR",
@@ -300,7 +302,8 @@ void DrawWelcomeScreen(const Screen &scr)
 		"------------------------------",
 		"",
 		" This plugin is brought to you",
-		"         by " + std::string(Creater_name),
+		//"         by " + std::string(Creater_name),
+		"         by ",
 		"",
 		"------------------------------",
 		"",
@@ -314,11 +317,14 @@ void DrawWelcomeScreen(const Screen &scr)
 	};
 	
 	DrawBackground(scr);
-	int i = 0;
-	for( const std::string &s : messages )
-	{
+
+	for(size_t i=0;i<sizeof(messages)/sizeof(char*);i++){
+		std::string&& s = messages[i];
+
+		if( i==6 ) { s += Creater_name; }
+
 		DrawString(scr, s, px, py, msg_c[i]);
-		py += 10; i++;
+		py += 10;
 	}
 }
 
